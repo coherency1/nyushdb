@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+
+
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+
+<form method="POST">
+  <h3 align="center">Add Airport</h3>
+  <div class="form-group">
+    <label for="airport_name">Airport Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="airport_name"
+      name="airport_name"
+      placeholder="Enter Airport Name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="airport_city">Airport City</label>
+    <input
+      type="text"
+      class="form-control"
+      id="airport_city"
+      name="airport_city"
+      placeholder="Enter Airport City"
+    />
+  </div>
+
+
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

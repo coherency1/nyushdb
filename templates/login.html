@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+	{% block title %}Login{% endblock %} {% block
+content %}
+
+
+<form method="POST">
+  <h3 align="center">Sign In</h3>
+
+
+
+   <br />
+
+  <select class="form-select" aria-label="Default select example" name="LoginType" id="LoginType">
+  <option selected>Select Login Type</option>
+  <option value="1">Customer</option>
+  <option value="2">Booking Agent</option>
+  <option value="3">Airline Staff</option>
+
+
+
+
+</select>
+
+
+
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

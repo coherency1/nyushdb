@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if name %}
+
+	<h1>Welcome back, {{name}}</h1>
+
+{% endif %}
+
+
+
+<a class="btn btn-primary" href="{{ url_for('customer_viewmyflights')}}" role="button">View Flights</a>
+
+
+<a class="btn btn-primary" href="{{ url_for('customer_searchforflights')}}" role="button">Search for Flights</a>
+
+<a class="btn btn-primary" href="{{ url_for('customer_trackmyspending')}}" role="button">Track my Spending</a>
+
+<a class="btn btn-primary" href="{{ url_for('customer_logout')}}" role="button">Logout</a>
+
+{% endblock %}

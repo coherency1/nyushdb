@@ -1,0 +1,64 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+
+
+
+
+{% if loginType == 'agent' %}
+<h3 align="center">Hi Agent</h3>
+<form method="POST" action="{{url_for('booking_agent_viewcommission')}}">
+
+
+{% elif loginType == 'staff' %}
+<h3 align="center">Hi Staff</h3>
+<form method="POST" action="{{url_for('staff_view_flights')}}">
+
+{% else %}
+<h3 align="center">Hi Customer</h3>
+<form method="POST" action="{{url_for('customer_trackmyspending')}}">
+
+{% endif %}
+
+
+
+
+
+
+
+   <br />
+
+
+
+<div class="form-group">
+    <label for="starting_date">Starting Date</label>
+    <input
+      type="text"
+      class="form-control"
+      id="starting_date"
+      name="starting_date"
+      placeholder=" Input Date YYYY-MM-DD"
+    />
+  </div>
+
+             <br />
+
+      <div class="form-group">
+    <label for="duration">How many months before?</label>
+    <input
+      type="text"
+      class="form-control"
+      id="duration"
+      name="duration"
+      placeholder=" Input Months"
+    />
+  </div>
+
+
+</select>
+
+
+
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

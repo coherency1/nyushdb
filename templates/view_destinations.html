@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table table-striped">
+    <thead>
+                    <tr>
+                    <th>Destination</th>
+                        <th>Destination Count</th>
+
+
+                    </tr>
+                    </thead>
+
+     <tbody>
+                    {% for row in data %}
+                    <tr>
+                    <td>{{row[1]}}</td>
+                        <td>{{row[0]}}</td>
+
+
+                    </tr>
+
+
+
+
+                    {% endfor %}
+                    </tbody>
+
+    </table>
+
+<a class="btn btn-primary" href="{{ url_for('airline_staff_home')}}" role="button">Back Home</a>
+
+
+{% endblock %}

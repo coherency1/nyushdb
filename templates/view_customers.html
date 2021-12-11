@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table table-striped">
+    <thead>
+                    <tr>
+                    <th>Customer Name</th>
+                        <th>Times Flew</th>
+
+
+                    </tr>
+                    </thead>
+
+     <tbody>
+                    {% for row in data %}
+                    <tr>
+                    <td>{{row[0]}}</td>
+                         <td>{{row[1]}}</td>
+                        <td>
+
+                            <form method="POST" action="{{url_for('customer_viewmyflights')}}">
+                                <input type="hidden" name="criteria" value= "airline_name">
+                                <input type="hidden" name="input_value" value="{{airline}}"/>
+                                <input type="hidden" name="customer_email" value={{row[0]}}>
+                            <button type="submit" class="btn btn-primary">Specifics</button>
+                            </form>
+                        </td>
+
+                    </tr>
+
+
+
+
+
+
+
+
+                    {% endfor %}
+                    </tbody>
+
+
+
+    </table>
+
+<a class="btn btn-primary" href="{{ url_for('airline_staff_home')}}" role="button">Back Home</a>
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<h1>Welcome back, {{name}}</h1>
+
+
+{% if permissions == ('Both',) %}
+
+<a class="btn btn-primary" href="{{ url_for('create_flight')}}" role="button">Create New Flights</a>
+
+
+<a class="btn btn-primary" href="{{ url_for('add_airplane')}}" role="button">Add Airplane</a>
+
+
+    <a class="btn btn-primary" href="{{ url_for('add_airport')}}" role="button">Add Airport</a>
+
+    <a class="btn btn-primary" href="{{ url_for('grant_new_permissions')}}" role="button">Grant New Permissions</a>
+
+    <a class="btn btn-primary" href="{{ url_for('add_agents')}}" role="button">Add Booking Agents</a>
+
+     <a class="btn btn-primary" href="{{ url_for('change_status')}}" role="button">Change Status of Flights</a>
+
+{% elif permissions == ('Admin',) %}
+
+<a class="btn btn-primary" href="{{ url_for('create_flight')}}" role="button">Create New Flights</a>
+
+
+<a class="btn btn-primary" href="{{ url_for('add_airplane')}}" role="button">Add Airplane</a>
+
+
+    <a class="btn btn-primary" href="{{ url_for('add_airport')}}" role="button">Add Airport</a>
+
+    <a class="btn btn-primary" href="{{ url_for('grant_new_permissions')}}" role="button">Grant New Permissions</a>
+
+    <a class="btn btn-primary" href="{{ url_for('add_agents')}}" role="button">Add Booking Agents</a>
+
+
+{% elif permissions == ('Operator',) %}
+
+ <a class="btn btn-primary" href="{{ url_for('change_status')}}" role="button">Change Status of Flights</a>
+
+{% endif %}
+
+<br/><br/>
+
+<a class="btn btn-primary" href="{{ url_for('staff_view_flights')}}" role="button">View My Flights</a>
+
+<a class="btn btn-primary" href="{{ url_for('view_agents')}}" role="button">View All Booking Agents</a>
+
+
+
+    <a class="btn btn-primary" href="{{ url_for('view_customers')}}" role="button">View Frequent Customers</a>
+
+	<a class="btn btn-primary" href="{{ url_for('view_reports')}}" role="button">View Reports</a>
+
+
+<a class="btn btn-primary" href="{{ url_for('compare_revenue_earned')}}" role="button">Compare Revenue Earned</a>
+
+
+    <a class="btn btn-primary" href="{{ url_for('view_destinations')}}" role="button">View Top Destinations</a>
+
+    <a class="btn btn-primary" href="{{ url_for('staff_logout')}}" role="button">Logout</a>
+
+
+
+{% endblock %}

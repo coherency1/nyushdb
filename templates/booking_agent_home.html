@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if name %}
+	<h1>Welcome back, Agent {{name}}</h1>
+
+{% endif %}
+
+{% if error %}
+	<h1>Welcome back, Agent {{name}}. {{error}}</h1>
+
+{% endif %}
+
+
+
+
+<a class="btn btn-primary" href="{{ url_for('booking_agent_viewmyflights')}}" role="button">View Flights</a>
+
+<a class="btn btn-primary" href="{{ url_for('customer_searchforflights')}}" role="button">Search for Flights</a>
+
+<a class="btn btn-primary" href="{{ url_for('agent_logout')}}" role="button">Logout</a>
+
+
+<a class="btn btn-primary" href="{{ url_for('booking_agent_viewcommission')}}" role="button">Commission</a>
+
+<a class="btn btn-primary" href="{{ url_for('booking_agent_viewtopcustomers')}}" role="button">Top Customers</a>
+
+
+
+
+
+
+
+
+{% endblock %}

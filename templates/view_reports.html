@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table table-striped">
+    <thead>
+                    <tr>
+
+                        <th>Number of Tickets Sold</th>
+
+                    </tr>
+                    </thead>
+
+     <tbody>
+                    {% for row in data %}
+                    <tr>
+                    <td>{{row[0]}}</td>
+
+
+                    </tr>
+
+
+
+
+                    {% endfor %}
+                    </tbody>
+
+    </table>
+
+
+<table class="table table-striped">
+    <thead>
+                    <tr>
+                        <th>Month</th>
+                    <th>Month Spend</th>
+
+
+                    </tr>
+                    </thead>
+
+     <tbody>
+                    {% for row in bardata %}
+                    <tr>
+                        <td>{{row}}</td>
+
+                    <td>{{bardata[row][0][0]}}</td>
+
+
+                    </tr>
+
+                    {% endfor %}
+                    </tbody>
+
+    </table>
+
+
+<br />
+
+<img src=../{{graph}} alt="Chart" height="500" width="500">
+
+<br />
+
+
+<form method="post">
+
+<div class="form-group">
+    <label for="starting_date">Input Value Here in YYYY-MM-DD</label>
+    <input
+      type="text"
+      class="form-control"
+      id="starting_date"
+      name="starting_date"
+      placeholder=" Input Value Here"
+    />
+  </div>
+
+             <br />
+
+      <div class="form-group">
+    <label for="duration">How many months before?</label>
+    <input
+      type="text"
+      class="form-control"
+      id="duration"
+      name="duration"
+      placeholder=" Input Value Here"
+    />
+  </div>
+
+
+</select>
+
+
+
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<a class="btn btn-primary" href="{{ url_for('airline_staff_home')}}" role="button">Back Home</a>
+
+
+{% endblock %}

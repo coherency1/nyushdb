@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+  {% block title %}Login{% endblock %} {% block
+content %}
+
+
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+
+<form method="POST">
+  <h3 align="center">Sign In Staff</h3>
+
+
+
+   <br />
+
+  <form method="POST">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="username"
+      class="form-control"
+      id="username"
+      name="username"
+      placeholder="Enter username"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="Enter password"
+    />
+  </div>
+
+
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+
+
+
+
+</select>
+</form>
+{% endblock %}

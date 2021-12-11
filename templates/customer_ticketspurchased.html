@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}Register Success!{% endblock %} {% block
+content %}
+<h3 align="center">{{message}}</h3>
+
+{% if loginType == 'agent' %}
+<a class="btn btn-primary" href="{{ url_for('booking_agent_home')}}" role="button">Back to Home, Agent</a>
+
+{% elif loginType == 'staff' %}
+
+<a class="btn btn-primary" href="{{ url_for('airline_staff_home')}}" role="button">Back to Home, Sir</a>
+{% else %}
+<a class="btn btn-primary" href="{{ url_for('customer_home')}}" role="button">Back to Home</a>
+
+{% endif %}
+
+
+{% endblock %}

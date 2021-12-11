@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if not redir %}
+<form method="POST" action="{{url_for('view_agents')}}">
+    <input type="hidden" name="duration" value=5>
+    <button type="submit" class="btn btn-primary">Last 5 months</button>
+</form>
+
+<form method="POST" action="{{url_for('view_agents')}}">
+    <input type="hidden" name="duration" value=12>
+    <button type="submit" class="btn btn-primary">Last 12 months</button>
+</form>
+{% endif %}
+
+
+
+<table class="table table-striped">
+
+
+    <thead>
+                    <tr>
+                    <th>Booking Agent ID</th>
+
+                        {% if redir %}
+                        <th>Add Agent</th>
+
+                        {% else %}
+                        <th>Sales</th>
+                         {% endif %}
+
+                    </tr>
+                    </thead>
+
+     <tbody>
+                    {% for row in data %}
+                    <tr>
+                    <td>{{row[0]}}</td>
+
+                        {% if redir %}
+                         <td>
+                            <form method="POST" action="{{url_for('add_agents')}}">
+                                <input type="hidden" name="email" value= {{row[0]}}>
+                            <button type="submit" class="btn btn-primary">Add This Guy</button>
+
+
+                                </form>
+                        </td>
+                        {% else %}
+                    <td>{{row[1]}}</td>
+                        {% endif %}
+
+
+                    </tr>
+
+
+
+
+
+
+                    {% endfor %}
+                    </tbody>
+
+    </table>
+
+<a class="btn btn-primary" href="{{ url_for('airline_staff_home')}}" role="button">Back Home</a>
+
+{% endblock %}

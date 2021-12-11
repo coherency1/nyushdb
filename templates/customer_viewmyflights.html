@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a class="btn btn-primary" href="{{ url_for('search_info')}}" role="button">Specific Search</a>
+
+{% if loginType == 'staff'%}
+    <table class="table table-striped">
+    <thead>
+                    <tr>
+                    <th>Airline Name</th>
+                    <th>Flight Num</th>
+                    <th>Departure Airport</th>
+                    <th>Departure Time</th>
+                        <th>Arrival Airport</th>
+                        <th>Arrival Time</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Airplane ID</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for row in data %}
+                    <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                    <td>{{row[6]}}</td>
+                    <td>{{row[7]}}</td>
+                    <td>{{row[8]}}</td>
+                    <!-- <td>{{row[9]}}</td> -->
+
+
+                    <!-- <td style="word-break:break-all; width: 200px;"><p style="word-wrap: break-word;  word-wrap: break-word; width: 200px;">{{row[5]}}</p></td> -->
+                    </tr>
+
+
+
+
+                    {% endfor %}
+                    </tbody>
+
+
+
+        </table>
+
+{% else %}
+<table class="table table-striped">
+    <thead>
+                    <tr>
+                    <th>Ticket ID</th>
+                    <th>Airline Name</th>
+                    <th>Flight Num</th>
+                    <th>Departure Airport</th>
+                    <th>Departure Time</th>
+                        <th>Arrival Airport</th>
+                        <th>Arrival Time</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Airplane ID</th>
+                        <th>Purchase Date</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for row in data %}
+                    <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                    <td>{{row[6]}}</td>
+                    <td>{{row[7]}}</td>
+                    <td>{{row[8]}}</td>
+                    <td>{{row[9]}}</td>
+                    <th>{{row[12]}}</th>
+
+
+                    <!-- <td style="word-break:break-all; width: 200px;"><p style="word-wrap: break-word;  word-wrap: break-word; width: 200px;">{{row[5]}}</p></td> -->
+                    </tr>
+
+
+
+
+                    {% endfor %}
+                    </tbody>
+
+
+
+        </table>
+
+    {% endif %}
+{% if loginType == 'agent' %}
+    <a class="btn btn-primary" href="{{ url_for('booking_agent_home')}}" role="button">Back Home</a>
+{% elif permission %}
+<a class="btn btn-primary" href="{{ url_for('airline_staff_home')}}" role="button">Back Home</a>
+
+    {% else %}
+    <a class="btn btn-primary" href="{{ url_for('customer_home')}}" role="button">Back Home</a>
+     {% endif %}
+
+
+{% endblock %}

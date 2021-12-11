@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="POST">
+    <input type="hidden" name="duration" value=12>
+    <button type="submit" class="btn btn-primary">Last 12 months</button>
+</form>
+
+<form method="POST">
+    <input type="hidden" name="duration" value=1>
+    <button type="submit" class="btn btn-primary">Last 1 months</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+                    <tr>
+
+                        <th>Customer</th>
+                        <th>Agent</th>
+
+                    </tr>
+                    </thead>
+
+     <tbody>
+
+                    <tr>
+                    <td>{{data_customer}}</td>
+                        <td>{{data_agent}}</td>
+                    </tr>
+
+
+
+
+
+
+                    </tbody>
+
+    </table>
+
+<img src=../{{graph}} alt="Chart" height="500" width="500">
+
+<a class="btn btn-primary" href="{{ url_for('airline_staff_home')}}" role="button">Back Home</a>
+
+
+{% endblock %}

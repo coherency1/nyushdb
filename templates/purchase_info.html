@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+
+
+
+
+
+<h3 align="center">Search for Flights</h3>
+<form method="POST" action="{{url_for('customer_searchforflights')}}">
+
+
+
+   <br />
+
+  <select class="form-select" aria-label="Default select example" name="criteria" id="LoginType">
+  <option selected>Select Search Criteria Type</option>
+  <option value="departure_airport">Source Airport</option>
+  <option value="arrival_airport">Destination Airport</option>
+  <option value="departure_time">Date</option>
+
+    <br />
+
+<div class="form-group">
+    <label for="input_value">Input Value Here</label>
+    <input
+      type="text"
+      class="form-control"
+      id="input_value"
+      name="input_value"
+      placeholder=" Input Value Here"
+    />
+  </div>
+
+
+</select>
+
+
+
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

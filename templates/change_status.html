@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+
+
+<form method="POST"  action="{{url_for('change_status')}}">
+  <h3 align="center">New Status</h3>
+
+   <br />
+
+
+    <div class="form-group">
+    <label for="flight_num">Flight Number</label>
+    <input
+      type="text"
+      class="form-control"
+      id="flight_num"
+      name="flight_num"
+      placeholder="Enter flight number"
+    />
+  </div>
+
+
+  <select class="form-select" aria-label="Default select example" name="new_status" id="LoginType">
+  <option selected>Select New Status</option>
+  <option value="Upcoming">Upcoming</option>
+  <option value="In-Progress">In-Progress</option>
+  <option value="Cancelled">Cancelled</option>
+
+
+
+
+</select>
+
+<input type="hidden" name="airline_name" value= "{{airline_name}}"/>
+    <input type="hidden" name="flight_num" value= {{flight_num}}>
+
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+
+<table class="table table-striped">
+    <thead>
+                    <tr>
+                    <th>Username</th>
+                    <th>First Name</th>
+                        <th>Permission</th>
+                        <th>Action</th>
+
+                    </tr>
+                    </thead>
+
+     <tbody>
+                    {% for row in data %}
+                    <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[7]}}</td>
+                        <form method="POST">
+                         <td>
+
+                                 <select class="form-select" aria-label="Default select example" name="new_status" id="LoginType">
+                                      <option selected>Select New Permission</option>
+                                      <option value="Operator">Operator</option>
+                                      <option value="Admin">Admin</option>
+                                      <option value="Both">Admin & Operator</option>
+                                      <option value="None">Remove</option>
+
+
+                        </td>
+                            <td>
+                                <input type="hidden" name="username" value= {{row[0]}}>
+
+                               <button type="submit" class="btn btn-primary">Change Permission</button>
+                            </td>
+
+                             </form>
+
+                    </tr>
+
+
+
+
+                    {% endfor %}
+                    </tbody>
+
+    </table>
+
+<a class="btn btn-primary" href="{{ url_for('airline_staff_home')}}" role="button">Back Home</a>
+
+{% endblock %}
