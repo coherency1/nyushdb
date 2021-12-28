@@ -1,6 +1,6 @@
 # Databases Final Project
 
-# contributors: Corey Chen, Alexander Gunawan
+```contributors: Corey Chen, Alexander Gunawan```
 
 # folders:
 static:
